@@ -47,5 +47,12 @@ def db_API():
   fetched_Data = fetch_Data()
   return jsonify(fetched_Data)
 
+
+@app.route('/test', methods=['GET'])
+
+def test():
+  return "TEST"
+
+
 if __name__ == "__main__":
   app.run(port=8080, debug=True, use_reloader=False)
