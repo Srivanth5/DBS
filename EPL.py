@@ -17,7 +17,7 @@ def scrape(url):
     row_data = []
     for td in tr.find_all('td'):
       row_data.append(td.text.strip())
-      rows.append(dict(zip(headers, row_data)))
+    rows.append(dict(zip(headers, row_data)))
   return rows
 
 def mongodb_Connection():
