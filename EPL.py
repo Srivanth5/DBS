@@ -8,11 +8,16 @@ def scrape(url):
   soup = BeautifulSoup(res.text, 'html.parser')
   tbody = soup.find('div', class_="Table__TableWrapper-r2czfk-3 hezlIo")
   thead = soup.find('thead')
-  headers = [th.text.strip() for th in thead.find_all('th')]
+  headers = []
+  for th in thead.find_all('th'):
+    headers.append(th.text.strip())
+
   rows = []
   for tr in tbody.find_all('tr', class_="Table__TableRow-r2czfk-8 dwCAtX"):
-    row_data = [td.text.strip() for td in tr.find_all('td')]
-    rows.append(dict(zip(headers,row_data)))
+    row_data = []
+    for td in tr.find_all('td'):
+      row_data.append(td.text.strip())
+      rows.append(dict(zip(headers, row_data)))
   return rows
 
 def mongodb_Connection():
