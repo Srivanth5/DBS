@@ -10,13 +10,19 @@ def scrape(url):
   thead = soup.find('thead')
   headers = []
   for th in thead.find_all('th'):
-    headers.append(th.text.strip())
+    header_text = th.text.strip().replace(' ', '_').lower()
+    headers.append(header_text)
 
   rows = []
   for tr in tbody.find_all('tr', class_="Table__TableRow-r2czfk-8 dwCAtX"):
     row_data = []
     for td in tr.find_all('td'):
-      row_data.append(td.text.strip())
+      data_text = td.text.strip().replace(',', '')  # Example preprocessing
+      try:
+          data_text = float(data_text)
+      except ValueError:
+          pass
+      row_data.append(data_text)
     rows.append(dict(zip(headers, row_data)))
   return rows
 
