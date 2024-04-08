@@ -17,7 +17,7 @@ def scrape(url):
   for tr in tbody.find_all('tr', class_="Table__TableRow-r2czfk-8 dwCAtX"):
     row_data = []
     for td in tr.find_all('td'):
-      data_text = td.text.strip().replace(',', '')  # Example preprocessing
+      data_text = td.text.strip().replace(',', '')
       try:
           data_text = float(data_text)
       except ValueError:
