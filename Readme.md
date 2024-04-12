@@ -30,10 +30,10 @@ This project attempts to scrape English Premier League standings data from a cer
 * The EPL standings information is stored in a database collection titled "standings".
 * The functions mongodb_Connection(), insert_Data(), and fetch_Data() help you communicate with the MongoDB database:
 
-      * mongodb_Connection() makes a connection to the MongoDB instance.
-      * Insert_Data() takes the scraped and processed data and stores it in the 
+      * connect() makes a connection to the MongoDB instance.
+      * insert() takes the scraped and processed data and stores it in the 
         "" collection of the "EPLLeague" database.
-      * fetch_Datstandingsa() extracts data from the "standings" collection and 
+      * get() extracts data from the "standings" collection and 
         returns it for further use.
 
 4.   API Endpoint:

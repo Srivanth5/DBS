@@ -26,31 +26,31 @@ def scrape(url):
     rows.append(dict(zip(headers, row_data)))
   return rows
 
-def mongodb_Connection():
+def connect():
   client = MongoClient('mongodb://localhost:27017/')
   db = client['EPLLeague']
   collection = db['standings']
   return collection
-def insert_Data(data):
-  table = mongodb_Connection()
+def insert(data):
+  table = connect()
   table.insert_many(data)
-def fetch_Data():
-  table_Data = mongodb_Connection()
+def get():
+  table_Data = connect()
   final_Data = list(table_Data.find({}, {'_id': 0}))
   return final_Data
-def create_and_populate_db():
+def scraped_data():
   url = "https://www.sportinglife.com/football/league-tables/english-premier-league/1"
   league_Table = scrape(url)
-  insert_Data(league_Table)
+  insert(league_Table)
 
-create_and_populate_db()
+scraped_data()
 
 app = Flask(__name__)
 
 @app.route('/api/leagueStandings/db', methods=['GET'])
 
 def db_API():
-  fetched_Data = fetch_Data()
+  fetched_Data = get()
   return jsonify(fetched_Data)
 
 
