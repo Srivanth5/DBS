@@ -35,6 +35,10 @@ This project attempts to scrape English Premier League standings data from a cer
         "" collection of the "EPLLeague" database.
       * get() extracts data from the "standings" collection and 
         returns it for further use.
+4. Dropping a Database
+
+* Permanently deletes a specific database from MongoDB
+* This drop_db() function deletes the provided database, in this case "EPLLeague"
 
 4.   API Endpoint:
 
