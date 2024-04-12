@@ -3,6 +3,9 @@
 
 This project attempts to scrape English Premier League standings data from a certain website, save the collected data in a MongoDB database, and make the data available via a REST API endpoint. The primary components include site scraping, data preparation, MongoDB storage, API endpoint, and cron-based automated updates.
 
+Scraped Data      --> EPL.py(main file)
+Delete Database   --> mongoDrop.py
+
 # Key Features:
 
 1.   Web Scraping:
