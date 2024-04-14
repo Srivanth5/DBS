@@ -1,3 +1,10 @@
+Student Name: Srivanth Purusothaman
+
+Student ID: 20031609
+
+Mail ID: 20031609@mydbs.ie
+
+
 # FOOTBALL LEAGUE-TAGBLE DATA PIPELINE
 # Project Overview:
 
